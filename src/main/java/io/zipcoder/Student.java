@@ -11,7 +11,7 @@ public class Student {
     public Student(String firstName, String lastName, Double[] testScores) {
         this.firstName = firstName;
         this.lastName = lastName;
-        this.examScores = (ArrayList<Double>) Arrays.asList(testScores);
+        this.examScores = new ArrayList<Double> (Arrays.asList(testScores));
     }
 
     public String getFirstName() {
@@ -32,5 +32,17 @@ public class Student {
 
     public int getNumberOfExamsTaken() {
         return examScores.size();
+    }
+
+    public String getExamScores() {
+        int examNumber = 1;
+        StringBuilder result = new StringBuilder("\n");
+        for (Double n : examScores) {
+            result.append("Exam " + examNumber + " -> ");
+            result.append(n);
+            result.append("\n");
+            examNumber++;
+        }
+        return result.toString();
     }
 }
