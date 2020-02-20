@@ -25,4 +25,20 @@ public class StudentTest {
 
     }
 
+    @Test
+    public void addExamScoreTest(){
+        //Given
+        String firstName = "Kevin";
+        String lastName = "Romero";
+        Double[] examScores = {};
+        Student testStudent = new Student(firstName,lastName,examScores);
+
+        //When
+        testStudent.addExamScore(100.0);
+        String output = testStudent.getExamScores();
+
+        //Then
+        logger.log(Level.INFO,"This students record = " + output);
+    }
+
 }

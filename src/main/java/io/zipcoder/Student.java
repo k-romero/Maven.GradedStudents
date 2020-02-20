@@ -39,10 +39,16 @@ public class Student {
         StringBuilder result = new StringBuilder("\n");
         for (Double n : examScores) {
             result.append("Exam " + examNumber + " -> ");
-            result.append(n);
+            double castDouble = n;
+            int currentScore = (int) castDouble;
+            result.append(currentScore);
             result.append("\n");
             examNumber++;
         }
         return result.toString();
+    }
+
+
+    public void addExamScore(double v) {
     }
 }
