@@ -56,4 +56,14 @@ public class Student {
     public void setExamScore(int examNumber, double examScore) {
         examScores.set(examNumber-1,examScore);
     }
+
+
+    public double getAverageExamScore() {
+        double result = 0.0;
+        for (double n : examScores) {
+            result += n;
+        }
+        int numberOfExams = examScores.size();
+        return result/numberOfExams;
+    }
 }

@@ -67,4 +67,23 @@ public class StudentTest {
         Assert.assertEquals(expected, actual, .00);
     }
 
+    @Test
+    public void getAvgExamScoreTest(){
+        //Given
+        String firstName = "Kevin";
+        String lastName = "Romero";
+        Double[] examScores = {100.0, 95.0, 99.0, 88.0};
+        Student testStudent = new Student(firstName,lastName,examScores);
+
+        //When
+        double expected = 95.5;
+        double actual = testStudent.getAverageExamScore();
+        String output = testStudent.getExamScores();
+
+
+        //Then
+        logger.log(Level.INFO,"This students record = " + output);
+        Assert.assertEquals(expected, actual, .00);
+    }
+
 }
