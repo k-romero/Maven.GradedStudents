@@ -46,4 +46,25 @@ public class StudentTest {
         Assert.assertEquals(expected, actual);
     }
 
+    @Test
+    public void setExamScoreTest(){
+        //Given
+        String firstName = "Kevin";
+        String lastName = "Romero";
+        Double[] examScores = {100.0};
+        Student testStudent = new Student(firstName,lastName,examScores);
+
+        //When
+        testStudent.setExamScore(1, 150.0);
+        String output = testStudent.getExamScores();
+
+
+        double expected = 150.0;
+        double actual = testStudent.examScores.get(0);
+
+        //Then
+        logger.log(Level.INFO,"This students record = " + output);
+        Assert.assertEquals(expected, actual, .00);
+    }
+
 }

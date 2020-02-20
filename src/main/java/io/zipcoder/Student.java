@@ -52,5 +52,8 @@ public class Student {
         examScores.add(v);
     }
 
-    
+
+    public void setExamScore(int examNumber, double examScore) {
+        examScores.set(examNumber-1,examScore);
+    }
 }
