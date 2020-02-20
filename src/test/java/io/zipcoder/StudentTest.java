@@ -1,5 +1,6 @@
 package io.zipcoder;
 
+import org.junit.Assert;
 import org.junit.Test;
 
 import java.util.logging.Level;
@@ -37,8 +38,12 @@ public class StudentTest {
         testStudent.addExamScore(100.0);
         String output = testStudent.getExamScores();
 
+
+        int expected = 1;
+        int actual = testStudent.examScores.size();
         //Then
         logger.log(Level.INFO,"This students record = " + output);
+        Assert.assertEquals(expected, actual);
     }
 
 }

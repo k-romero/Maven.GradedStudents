@@ -11,7 +11,7 @@ public class Student {
     public Student(String firstName, String lastName, Double[] testScores) {
         this.firstName = firstName;
         this.lastName = lastName;
-        this.examScores = new ArrayList<Double> (Arrays.asList(testScores));
+        this.examScores = new ArrayList<>(Arrays.asList(testScores));
     }
 
     public String getFirstName() {
@@ -39,8 +39,7 @@ public class Student {
         StringBuilder result = new StringBuilder("\n");
         for (Double n : examScores) {
             result.append("Exam " + examNumber + " -> ");
-            double castDouble = n;
-            int currentScore = (int) castDouble;
+            int currentScore = Math.toIntExact(Math.round(n));
             result.append(currentScore);
             result.append("\n");
             examNumber++;
@@ -50,5 +49,8 @@ public class Student {
 
 
     public void addExamScore(double v) {
+        examScores.add(v);
     }
+
+    
 }
