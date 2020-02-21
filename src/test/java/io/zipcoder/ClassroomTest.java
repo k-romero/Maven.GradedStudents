@@ -216,7 +216,7 @@ public class ClassroomTest {
     }
 
     @Test
-    public void getClassAverageTest(){
+    public void getGradeBookTest(){
         Double[] s1Scores = { 65.0, 60.0, 63.0, 64.0};
         Double[] s2Scores = { 85.0, 88.0, 80.0, 85.0};
         Double[] s3Scores = {100.0, 100.0, 100.0, 98.0};
