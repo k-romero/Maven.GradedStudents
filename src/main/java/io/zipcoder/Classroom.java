@@ -99,7 +99,26 @@ public class Classroom {
         return result;
     }
 
+    public int getHighestScore(){
+        int result = 0;
+        for (int i = 1; i < students.length; i++) {
+            if(students[i-1].getAverageExamScore() > students[i].getAverageExamScore()){
+                result = (int) students[i-1].getAverageExamScore();
+            }
+        }
+        return result;
+    }
 
 
+    public int getLowestScore() {
+        int result = 0;
+        for (int i = 1; i < students.length; i++) {
+            if(students[i-1].getAverageExamScore() < students[i].getAverageExamScore()){
+                result = (int) students[i-1].getAverageExamScore();
+            }
+        }
+        return result;
+    }
 
+    
 }

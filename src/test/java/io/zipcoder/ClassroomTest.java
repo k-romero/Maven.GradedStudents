@@ -129,4 +129,64 @@ public class ClassroomTest {
         //Then
         Assert.assertEquals(expected,actual);
     }
+
+
+
+
+
+    @Test
+    public void getHighestScoreTest(){
+        //Given
+        Double[] s1Scores = { 65.0, 60.0, 63.0, 64.0};
+        Double[] s2Scores = { 85.0, 88.0, 80.0, 85.0};
+        Double[] s3Scores = {100.0, 100.0, 100.0, 98.0};
+        Double[] s4Scores = { 25.0, 45.0, 30.0, 85.0};
+        Double[] s5Scores = {72.0, 75.0, 75.0, 80.0};
+
+        Student s1 = new Student("student", "Dickhead", s1Scores);
+        Student s2 = new Student("student", "Brittany", s2Scores);
+        Student s3 = new Student("student", "Alex", s3Scores);
+        Student s4 = new Student("student", "Frank", s4Scores);
+        Student s5 = new Student("student", "Cathy", s5Scores);
+
+        Student[] students = new Student[]{s1,s2,s3,s4,s5};
+        Classroom classroom = new Classroom(students);
+
+        //When
+        int expected = (int) s3.getAverageExamScore();
+        int actual = classroom.getHighestScore();
+
+        //Then
+        Assert.assertEquals(expected,actual);
+
+    }
+
+    @Test
+    public void getLowestScoreTest(){
+        //Given
+        Double[] s1Scores = { 65.0, 60.0, 63.0, 64.0};
+        Double[] s2Scores = { 85.0, 88.0, 80.0, 85.0};
+        Double[] s3Scores = {100.0, 100.0, 100.0, 98.0};
+        Double[] s4Scores = { 25.0, 45.0, 30.0, 85.0};
+        Double[] s5Scores = {72.0, 75.0, 75.0, 80.0};
+
+        Student s1 = new Student("student", "Dickhead", s1Scores);
+        Student s2 = new Student("student", "Brittany", s2Scores);
+        Student s3 = new Student("student", "Alex", s3Scores);
+        Student s4 = new Student("student", "Frank", s4Scores);
+        Student s5 = new Student("student", "Cathy", s5Scores);
+
+        Student[] students = new Student[]{s1,s2,s3,s4,s5};
+        Classroom classroom = new Classroom(students);
+
+        //When
+        int expected = (int) s4.getAverageExamScore();
+        int actual = classroom.getLowestScore();
+
+        //Then
+        Assert.assertEquals(expected,actual);
+
+    }
+
+
 }
