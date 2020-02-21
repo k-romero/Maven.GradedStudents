@@ -108,7 +108,25 @@ public class ClassroomTest {
         Student[] postOrdered = classroom.getStudentsByScore();
         String postOrderedAsString = Arrays.toString(postOrdered);
 
+        String expected = "three";
+        String actual = classroom.students[0].getLastName();
+
         // : Then
         logger.log(Level.INFO,"The new classroom = \n" + postOrderedAsString);
+        Assert.assertEquals(expected,actual);
+    }
+
+    @Test
+    public void sortLastNamesTest(){
+        //Given
+        String prevStudent = "three";
+        String currentStudent = "two";
+        Classroom classroom = new Classroom();
+        //When
+        int expected = -1;
+        int actual = classroom.sortStudentsLastName(prevStudent,currentStudent);
+
+        //Then
+        Assert.assertEquals(expected,actual);
     }
 }
