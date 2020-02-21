@@ -8,7 +8,7 @@ import java.util.logging.Logger;
 
 public class StudentTest {
 
-     Logger logger = Logger.getLogger("Dice");
+     Logger logger = Logger.getLogger("StudentTest");
 
     @Test
     public void getExamScoresTest(){
@@ -78,11 +78,10 @@ public class StudentTest {
         //When
         double expected = 95.5;
         double actual = testStudent.getAverageExamScore();
-        String output = testStudent.getExamScores();
 
 
         //Then
-        logger.log(Level.INFO,"This students record = " + output);
+        logger.log(Level.INFO,"This students average exam score = " + expected);
         Assert.assertEquals(expected, actual, .00);
     }
 
