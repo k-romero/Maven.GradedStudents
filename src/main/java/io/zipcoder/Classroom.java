@@ -1,6 +1,13 @@
 package io.zipcoder;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 public class Classroom {
+    Logger logger = Logger.getLogger("ClassroomTest");
+
     Student[] students;
     private int maxNumberOfStudents;
 
@@ -43,7 +50,6 @@ public class Classroom {
             if(students[i].getFirstName().equals(firstName) && students[i].getLastName().equals(lastName)){
                 students[i] = null;
             }
-
         }
         for (int i = 1; i < students.length; i++) {
             if(students[i-1] == null){
@@ -110,7 +116,7 @@ public class Classroom {
     }
 
 
-    public int getLowestScore() {
+    public int getLowestScore(){
         int result = 0;
         for (int i = 1; i < students.length; i++) {
             if(students[i-1].getAverageExamScore() < students[i].getAverageExamScore()){
@@ -120,5 +126,50 @@ public class Classroom {
         return result;
     }
 
-    
+    public int getClassAverage(){
+        int result = 0;
+        for (int i = 0; i < students.length; i++) {
+            result += students[i].getAverageExamScore();
+        }
+        return result/students.length;
+    }
+
+    public HashMap<String, ArrayList<Student>> getGradeBook(){
+        int a = (int) (getHighestScore() * .90);
+        int b = (int) (getHighestScore() * .71);
+        int c = (int) (getHighestScore() * .50);
+        int d = (int) (getHighestScore() * .11);
+        ArrayList<Student> aStudents = new ArrayList<>();
+        ArrayList<Student> bStudents = new ArrayList<>();
+        ArrayList<Student> cStudents = new ArrayList<>();
+        ArrayList<Student> dStudents = new ArrayList<>();
+        ArrayList<Student> fStudents = new ArrayList<>();
+        for (Student n : students) {
+            int avgScore = (int) n.getAverageExamScore();
+            if (avgScore < d){
+                fStudents.add(n);
+            } else if (avgScore < c && avgScore >= d){
+                dStudents.add(n);
+            } else if (avgScore < b && avgScore >= c){
+                cStudents.add(n);
+            } else if (avgScore < a && avgScore >= b){
+                bStudents.add(n);
+            } else {
+                aStudents.add(n);
+            }
+        }
+        HashMap<String,ArrayList<Student>> gradeBook = new HashMap<>();
+        gradeBook.put("A",aStudents);
+        gradeBook.put("B",bStudents);
+        gradeBook.put("C",cStudents);
+        gradeBook.put("D",dStudents);
+        gradeBook.put("F",fStudents);
+
+        return gradeBook;
+    }
+
+
+
+
+
 }
