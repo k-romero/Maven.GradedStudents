@@ -86,4 +86,19 @@ public class StudentTest {
         Assert.assertEquals(expected, actual, .00);
     }
 
+    @Test
+    public void overrideStringTest(){
+        //Given
+        String firstName = "Kevin";
+        String lastName = "Romero";
+        Double[] examScores = {100.0, 95.0, 99.0, 88.0};
+        Student testStudent = new Student(firstName,lastName,examScores);
+
+        //When
+        String output = testStudent.toString();
+
+        //Then
+        logger.log(Level.INFO,"" + output);
+    }
+
 }

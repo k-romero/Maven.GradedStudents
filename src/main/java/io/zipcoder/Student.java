@@ -66,4 +66,12 @@ public class Student {
         int numberOfExams = examScores.size();
         return result/numberOfExams;
     }
+
+
+    @Override
+    public String toString(){
+        double avgScore = getAverageExamScore();
+        String result = String.format("Student Name: %s %s%n> Average Score: %.2f%n> Exam Scores:",firstName,lastName,avgScore);
+        return String.format("%s %s",result,getExamScores());
+    }
 }
