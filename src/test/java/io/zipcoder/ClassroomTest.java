@@ -41,7 +41,7 @@ public class ClassroomTest {
         int maxNumberOfStudents = 1;
         Classroom classroom = new Classroom(maxNumberOfStudents);
         Double[] examScores = { 100.0, 150.0, 250.0, 0.0 };
-        Student s1 = new Student("Leon", "Hunter", examScores);
+        Student s1 = new Student("Kevin", "Romero", examScores);
 
         // When
         Student[] preEnrollment = classroom.getStudents();
@@ -56,6 +56,37 @@ public class ClassroomTest {
         System.out.println(preEnrollmentAsString);
         System.out.println("===========================");
         System.out.println(postEnrollmentAsString);
+
+    }
+
+    @Test
+    public void removeStudentTest(){
+        // : Given
+        Double[] s1Scores = { 100.0, 150.0 };
+        Double[] s2Scores = { 225.0, 25.0 };
+        Double[] s3Scores = {95.0, 100.0};
+
+        Student s1 = new Student("student", "one", s1Scores);
+        Student s2 = new Student("student", "two", s2Scores);
+        Student s3 = new Student("student", "three", s3Scores);
+
+        Student[] students = new Student[]{s1,s2,s3};
+        Classroom classroom = new Classroom(students);
+
+        // When
+        Student[] preRemoval = classroom.getStudents();
+        String preRemovalAsString = Arrays.toString(preRemoval);
+
+
+
+
+        classroom.removeStudent("student", "one");
+        Student[] postRemoval = classroom.getStudents();
+        String postEnrollmentAsString = Arrays.toString(postRemoval);
+
+        // Then
+        logger.log(Level.INFO,"The old classroom = \n" + preRemovalAsString);
+        logger.log(Level.INFO,"The new classroom = \n" + postEnrollmentAsString);
 
     }
 }
