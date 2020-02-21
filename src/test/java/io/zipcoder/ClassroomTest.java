@@ -89,4 +89,26 @@ public class ClassroomTest {
         logger.log(Level.INFO,"The new classroom = \n" + postEnrollmentAsString);
 
     }
+
+    @Test
+    public void getStudentsByScoreTest(){
+        // : Given
+        Double[] s1Scores = { 86.0, 150.0 };
+        Double[] s2Scores = { 225.0, 25.0 };
+        Double[] s3Scores = {225.0, 25.0, };
+
+        Student s1 = new Student("student", "one", s1Scores);
+        Student s2 = new Student("student", "two", s2Scores);
+        Student s3 = new Student("student", "three", s3Scores);
+
+        Student[] students = new Student[]{s1,s2,s3};
+        Classroom classroom = new Classroom(students);
+
+        // : When
+        Student[] postOrdered = classroom.getStudentsByScore();
+        String postOrderedAsString = Arrays.toString(postOrdered);
+
+        // : Then
+        logger.log(Level.INFO,"The new classroom = \n" + postOrderedAsString);
+    }
 }

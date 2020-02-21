@@ -52,4 +52,29 @@ public class Classroom {
             }
         }
     }
+
+
+    public Student[] getStudentsByScore(){
+        Student[] result = students;
+        for (int i = 1; i < result.length; i++) {
+            if(result[i-1].getAverageExamScore() < result[i].getAverageExamScore()){
+                Student tempPos = result[i-1];
+                result[i-1] = result[i];
+                result[i] = tempPos;
+            } else if (result[i-1].getAverageExamScore() == result[i].getAverageExamScore()){
+                String lastNamePrevStudent = result[i-1].getLastName();
+                String lastNameCurrentStudent = result[i].getLastName();
+                for (int j = 0; j < lastNameCurrentStudent.length(); j++) {
+                    if(lastNamePrevStudent.charAt(j) > lastNameCurrentStudent.charAt(j)){
+                        Student tempPos = result[i-1];
+                        result[i-1] = result[i];
+                        result[i] = tempPos;
+                        break;
+                    }
+                }
+
+            }
+        }
+        return result;
+    }
 }
